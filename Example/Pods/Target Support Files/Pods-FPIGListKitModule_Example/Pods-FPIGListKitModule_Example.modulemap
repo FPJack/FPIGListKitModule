@@ -1,0 +1,6 @@
+framework module Pods_FPIGListKitModule_Example {
+  umbrella header "Pods-FPIGListKitModule_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

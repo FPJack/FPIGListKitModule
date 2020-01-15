@@ -1,0 +1,6 @@
+framework module FPIGListKitModule {
+  umbrella header "FPIGListKitModule-umbrella.h"
+
+  export *
+  module * { export * }
+}

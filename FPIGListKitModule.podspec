@@ -28,15 +28,41 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/FPJack/FPIGListKitModule.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
-  s.source_files = 'FPIGListKitModule/Classes/**/*'
+  s.dependency 'IGListKit'
+
+
+  ##########--基础组件---#########
+  s.subspec 'Base' do |b|
+  b.ios.deployment_target = '9.0'
+  b.source_files = 'FPIGListKitModule/Classes/Base/**/*.{h,m}'
+  b.resource_bundles = {
+    'FPIGListKitModule' => ['FPIGListKitModule/Assets/*.xib']
+  }
+  end
+
   
-  # s.resource_bundles = {
-  #   'FPIGListKitModule' => ['FPIGListKitModule/Assets/*.png']
-  # }
+  ##########--评论---#########
+  s.subspec 'Comment' do |c|
+  c.ios.deployment_target = '9.0'
+  c.source_files = 'FPIGListKitModule/Classes/Comment/**/*.{h,m}'
+  c.dependency 'TTTAttributedLabel'
+  c.dependency 'FPIGListKitModule/Base'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  end
+  
+  ##########--图片视频---#########
+  s.subspec 'VideoPicture' do |vp|
+  vp.ios.deployment_target = '9.0'
+  vp.source_files = 'FPIGListKitModule/Classes/VideoPicture/**/*.{h,m}'
+  vp.dependency 'FPImageVideoCell'
+  vp.dependency 'FPIGListKitModule/Base'
+  end
+  ##########--输入框---#########
+  s.subspec 'InputView' do |input|
+  input.ios.deployment_target = '9.0'
+  input.source_files = 'FPIGListKitModule/Classes/InputView/**/*.{h,m}'
+  input.dependency 'HPGrowingTextView'
+  end
 end

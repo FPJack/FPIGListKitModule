@@ -1,0 +1,71 @@
+PODS:
+  - FPIGListKitModule (0.1.0):
+    - FPIGListKitModule/Base (= 0.1.0)
+    - FPIGListKitModule/Comment (= 0.1.0)
+    - FPIGListKitModule/InputView (= 0.1.0)
+    - FPIGListKitModule/VideoPicture (= 0.1.0)
+    - IGListKit
+  - FPIGListKitModule/Base (0.1.0):
+    - IGListKit
+  - FPIGListKitModule/Comment (0.1.0):
+    - FPIGListKitModule/Base
+    - IGListKit
+    - TTTAttributedLabel
+  - FPIGListKitModule/InputView (0.1.0):
+    - HPGrowingTextView
+    - IGListKit
+  - FPIGListKitModule/VideoPicture (0.1.0):
+    - FPIGListKitModule/Base
+    - FPImageVideoCell
+    - IGListKit
+  - FPImageVideoCell (0.2.3)
+  - FPRefresh (0.1.3):
+    - MJRefresh
+  - HPGrowingTextView (1.1)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - Masonry (1.1.0)
+  - MJRefresh (3.3.1)
+  - SDWebImage (5.4.2):
+    - SDWebImage/Core (= 5.4.2)
+  - SDWebImage/Core (5.4.2)
+  - TTTAttributedLabel (2.0.0)
+
+DEPENDENCIES:
+  - FPIGListKitModule (from `../`)
+  - FPRefresh
+  - Masonry
+  - SDWebImage
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - FPImageVideoCell
+    - FPRefresh
+    - HPGrowingTextView
+    - IGListDiffKit
+    - IGListKit
+    - Masonry
+    - MJRefresh
+    - SDWebImage
+    - TTTAttributedLabel
+
+EXTERNAL SOURCES:
+  FPIGListKitModule:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FPIGListKitModule: a4874e57772e5229b767da0db7a4908c418f1d7c
+  FPImageVideoCell: 504ac60ef890f1ed28f198aa37a48414b95589de
+  FPRefresh: 446483b154c6b363d4f56f6b69a59f8f87c6cd1f
+  HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
+  SDWebImage: 4ca2dc4eefae4224bea8f504251cda485a363745
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+
+PODFILE CHECKSUM: 72e496d48b4bf054a8c615d387819c5870c2b0f2
+
+COCOAPODS: 1.9.0.beta.2

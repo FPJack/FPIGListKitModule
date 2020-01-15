@@ -1,0 +1,10 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FPIGListKitModule" "${PODS_CONFIGURATION_BUILD_DIR}/FPImageVideoCell" "${PODS_CONFIGURATION_BUILD_DIR}/FPRefresh" "${PODS_CONFIGURATION_BUILD_DIR}/HPGrowingTextView" "${PODS_CONFIGURATION_BUILD_DIR}/IGListDiffKit" "${PODS_CONFIGURATION_BUILD_DIR}/IGListKit" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage" "${PODS_CONFIGURATION_BUILD_DIR}/TTTAttributedLabel"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FPIGListKitModule/FPIGListKitModule.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FPImageVideoCell/FPImageVideoCell.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FPRefresh/FPRefresh.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/HPGrowingTextView/HPGrowingTextView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/IGListDiffKit/IGListDiffKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/IGListKit/IGListKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh/MJRefresh.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework/Headers"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_LDFLAGS = $(inherited) -l"c++" -framework "CoreGraphics" -framework "CoreText" -framework "FPIGListKitModule" -framework "FPImageVideoCell" -framework "FPRefresh" -framework "Foundation" -framework "HPGrowingTextView" -framework "IGListDiffKit" -framework "IGListKit" -framework "ImageIO" -framework "MJRefresh" -framework "Masonry" -framework "QuartzCore" -framework "SDWebImage" -framework "TTTAttributedLabel" -framework "UIKit"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

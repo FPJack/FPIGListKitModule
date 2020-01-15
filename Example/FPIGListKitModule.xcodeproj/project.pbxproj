@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04137B9623CEC494004B8C65 /* FPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04137B9123CEC493004B8C65 /* FPViewController.m */; };
+		04137B9723CEC494004B8C65 /* FPTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04137B9423CEC494004B8C65 /* FPTestVC.m */; };
+		04137B9823CEC494004B8C65 /* FPTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04137B9523CEC494004B8C65 /* FPTestVC.xib */; };
+		04137B9A23CEC4AA004B8C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04137B9923CEC4AA004B8C65 /* Main.storyboard */; };
+		04137B9C23CEC554004B8C65 /* example.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04137B9B23CEC554004B8C65 /* example.mp4 */; };
 		1AA870715084B480776EA803 /* Pods_FPIGListKitModule_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6F4E95C72CE5EAB7F4EC29 /* Pods_FPIGListKitModule_Example.framework */; };
 		1AE19141C650A8519C66EB80 /* Pods_FPIGListKitModule_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65320E0C1E20EC67BA96B96A /* Pods_FPIGListKitModule_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -15,7 +20,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* FPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* FPAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* FPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* FPViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -23,7 +27,6 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +40,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A7E70C2A8E660C455720FA3 /* FPIGListKitModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = FPIGListKitModule.podspec; path = ../FPIGListKitModule.podspec; sourceTree = "<group>"; };
-		0F322C3A09F4AD271D645EDE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		3C50093352EF792F47025CDC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		04137B9123CEC493004B8C65 /* FPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPViewController.m; path = ../../../FPCommentsModule/Example/FPCommentsModule/FPViewController.m; sourceTree = "<group>"; };
+		04137B9223CEC494004B8C65 /* FPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPViewController.h; path = ../../../FPCommentsModule/Example/FPCommentsModule/FPViewController.h; sourceTree = "<group>"; };
+		04137B9323CEC494004B8C65 /* FPTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTestVC.h; sourceTree = "<group>"; };
+		04137B9423CEC494004B8C65 /* FPTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTestVC.m; sourceTree = "<group>"; };
+		04137B9523CEC494004B8C65 /* FPTestVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FPTestVC.xib; sourceTree = "<group>"; };
+		04137B9923CEC4AA004B8C65 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		04137B9B23CEC554004B8C65 /* example.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = example.mp4; sourceTree = "<group>"; };
+		0A7E70C2A8E660C455720FA3 /* FPIGListKitModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FPIGListKitModule.podspec; path = ../FPIGListKitModule.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0F322C3A09F4AD271D645EDE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		3C50093352EF792F47025CDC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		437F846B93ED0A293B028157 /* Pods-FPIGListKitModule_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPIGListKitModule_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FPIGListKitModule_Tests/Pods-FPIGListKitModule_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FPIGListKitModule_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FPIGListKitModule_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,8 +61,6 @@
 		6003F59B195388D20070C39A /* FPIGListKitModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FPIGListKitModule-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* FPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* FPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* FPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* FPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* FPIGListKitModule_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FPIGListKitModule_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,7 +73,6 @@
 		748A5D9659AA9581ACFC0C22 /* Pods-FPIGListKitModule_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPIGListKitModule_Example.debug.xcconfig"; path = "Target Support Files/Pods-FPIGListKitModule_Example/Pods-FPIGListKitModule_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		79E8B3F9F09699DA07F7AD22 /* Pods-FPIGListKitModule_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPIGListKitModule_Tests.release.xcconfig"; path = "Target Support Files/Pods-FPIGListKitModule_Tests/Pods-FPIGListKitModule_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		86EE59E9B6EA318E9F77E801 /* Pods-FPIGListKitModule_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPIGListKitModule_Example.release.xcconfig"; path = "Target Support Files/Pods-FPIGListKitModule_Example/Pods-FPIGListKitModule_Example.release.xcconfig"; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A6F4E95C72CE5EAB7F4EC29 /* Pods_FPIGListKitModule_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FPIGListKitModule_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,11 +139,15 @@
 		6003F593195388D20070C39A /* Example for FPIGListKitModule */ = {
 			isa = PBXGroup;
 			children = (
+				04137B9B23CEC554004B8C65 /* example.mp4 */,
 				6003F59C195388D20070C39A /* FPAppDelegate.h */,
 				6003F59D195388D20070C39A /* FPAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* FPViewController.h */,
-				6003F5A6195388D20070C39A /* FPViewController.m */,
+				04137B9923CEC4AA004B8C65 /* Main.storyboard */,
+				04137B9323CEC494004B8C65 /* FPTestVC.h */,
+				04137B9423CEC494004B8C65 /* FPTestVC.m */,
+				04137B9523CEC494004B8C65 /* FPTestVC.xib */,
+				04137B9223CEC494004B8C65 /* FPViewController.h */,
+				04137B9123CEC493004B8C65 /* FPViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -193,7 +204,6 @@
 				437F846B93ED0A293B028157 /* Pods-FPIGListKitModule_Tests.debug.xcconfig */,
 				79E8B3F9F09699DA07F7AD22 /* Pods-FPIGListKitModule_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +268,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -277,10 +288,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				04137B9C23CEC554004B8C65 /* example.mp4 in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				04137B9A23CEC4AA004B8C65 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				04137B9823CEC494004B8C65 /* FPTestVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,10 +338,28 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FPIGListKitModule_Example/Pods-FPIGListKitModule_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FPIGListKitModule/FPIGListKitModule.framework",
+				"${BUILT_PRODUCTS_DIR}/FPImageVideoCell/FPImageVideoCell.framework",
+				"${BUILT_PRODUCTS_DIR}/FPRefresh/FPRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/HPGrowingTextView/HPGrowingTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FPIGListKitModule.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FPImageVideoCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FPRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HPGrowingTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListDiffKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -365,7 +396,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* FPAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* FPViewController.m in Sources */,
+				04137B9723CEC494004B8C65 /* FPTestVC.m in Sources */,
+				04137B9623CEC494004B8C65 /* FPViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
