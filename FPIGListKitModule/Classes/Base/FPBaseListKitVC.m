@@ -8,7 +8,7 @@
 
 #import "FPBaseListKitVC.h"
 #import <FPIGListKitModule.h>
-@interface FPBaseListKitVC ()<IGListAdapterDataSource>
+@interface FPBaseListKitVC ()
 @end
 @implementation FPBaseListKitVC
 - (UICollectionView *)collectionView{
@@ -64,7 +64,7 @@
 }
 - (IGListAdapter *)adapter{
     if (!_adapter) {
-        _adapter = [[IGListAdapter alloc]initWithUpdater:[IGListAdapterUpdater new] viewController:self workingRangeSize:0];
+        _adapter = [[IGListAdapter alloc]initWithUpdater:[IGListAdapterUpdater new] viewController:self.VC workingRangeSize:0];
         _adapter.dataSource = self;
     }
     return _adapter;
@@ -88,11 +88,25 @@
     return self;
 }
 - (void)setUI{
-    [self.view addSubview:self.collectionView];
+    [self addSubview:self.collectionView];
     self.adapter.collectionView = self.collectionView;
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.collectionView.frame = self.bounds;
 }
+- (NSArray<id <IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter{
+    return self.datas;
+}
+- (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id<FPSectionModelProtocal>)object{
+    if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
+        return object.sectionController;
+    }else{
+        return object.sectionControllerBlock(object);
+    }
+}
+- (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{
+    return nil;
+}
+
 @end

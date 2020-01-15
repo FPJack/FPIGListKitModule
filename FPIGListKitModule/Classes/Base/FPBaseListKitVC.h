@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <IGListKit/IGListKit.h>
 NS_ASSUME_NONNULL_BEGIN
-@interface FPBaseListKitVC : UIViewController
+@interface FPBaseListKitVC : UIViewController<IGListAdapterDataSource>
 @property (nonatomic,strong)IGListAdapter *adapter;
 @property (strong, nonatomic)UICollectionView *collectionView;
 @property (nonatomic,strong)NSMutableArray *datas;
@@ -18,9 +18,10 @@ NS_ASSUME_NONNULL_END
 
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPBaseListKitView : UIView
+@interface FPBaseListKitView : UIView<IGListAdapterDataSource>
 @property (nonatomic,strong)IGListAdapter *adapter;
 @property (strong, nonatomic)UICollectionView *collectionView;
 @property (nonatomic,strong)NSMutableArray *datas;
+@property (nonatomic,weak)UIViewController *VC;
 @end
 NS_ASSUME_NONNULL_END
