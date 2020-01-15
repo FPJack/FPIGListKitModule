@@ -221,7 +221,7 @@
         if (cellItem.width < 0) width = 0.01;
         if (cellItem.width > 0) width = cellItem.width;
     }
-    return CGSizeMake(height, width);
+    return CGSizeMake(width, height);
 }
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
     UICollectionViewCell *cell;
