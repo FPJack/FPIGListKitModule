@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "FPBaseListKitVC.h"
 #import "FPIGListKitModule.h"
 #import "FPModuleHelper.h"
 #import "FPModuleProtocoal.h"

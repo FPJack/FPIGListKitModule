@@ -14,7 +14,7 @@
     if (!_collectionView) {
         _collectionView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
         _collectionView.backgroundColor = [UIColor clearColor];
-        _collectionView.scrollEnabled = NO;
+//        _collectionView.scrollEnabled = NO;
     }
     return _collectionView;
 }
