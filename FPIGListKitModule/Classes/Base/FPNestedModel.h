@@ -10,7 +10,7 @@
 #import "FPModuleProtocoal.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPBaseSectionModel : NSObject<IGListDiffable,FPCreateSectionControllerProtocal>
+@interface FPBaseSectionModel : NSObject<FPBaseSectionModelProtocal>
 @property(nonatomic,copy)NSString *diffId;
 @property (nonatomic,strong)IGListSectionController *sectionController;
 @property (nonatomic,copy)IGListSectionController* (^sectionControllerBlock)(id<IGListDiffable,FPCreateSectionControllerProtocal> model);

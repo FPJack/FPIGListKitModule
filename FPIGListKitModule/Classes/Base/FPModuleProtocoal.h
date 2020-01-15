@@ -92,13 +92,17 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
+NS_ASSUME_NONNULL_BEGIN
+@protocol FPBaseSectionModelProtocal <IGListDiffable,FPCreateSectionControllerProtocal>
+@required
+@property(nonatomic,copy)NSString *diffId;
 
+@end
+NS_ASSUME_NONNULL_END
 
 //配置SectionController宽高 SectionInset
 NS_ASSUME_NONNULL_BEGIN
-@protocol FPSectionModelProtocal <IGListDiffable,FPWidthHeightProtocal,FPCreateSectionControllerProtocal,FPLoadReusableCellBlockProtocal>
-@required
-@property(nonatomic,copy)NSString *diffId;
+@protocol FPSectionModelProtocal <FPWidthHeightProtocal,FPLoadReusableCellBlockProtocal,FPBaseSectionModelProtocal>
 @optional
 @property (nonatomic,strong)id<FPConfigureReusableSupplementaryProtocal> header;
 @property (nonatomic,strong)id<FPConfigureReusableSupplementaryProtocal> footer;
