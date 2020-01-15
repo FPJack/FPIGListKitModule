@@ -144,9 +144,10 @@
 - (nonnull IGListSectionController *)listAdapter:(nonnull IGListAdapter *)listAdapter sectionControllerForObject:(nonnull id <FPBaseSectionModelProtocal>)object {
     if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
         return object.sectionController;
-    }else{
+    }else if([object respondsToSelector:@selector(sectionControllerBlock)]){
         return object.sectionControllerBlock(self.model);
     }
+    return nil;
 }
 - (nonnull NSArray<id<IGListDiffable>> *)objectsForListAdapter:(nonnull IGListAdapter *)listAdapter {
     return self.model.nestedCellItems;

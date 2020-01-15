@@ -33,7 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.collectionView];
-    self.adapter.collectionView = self.collectionView;
 }
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
@@ -45,9 +44,10 @@
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id<FPBaseSectionModelProtocal>)object{
     if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
         return object.sectionController;
-    }else{
+    }else if([object respondsToSelector:@selector(sectionControllerBlock)]){
         return object.sectionControllerBlock(object);
     }
+    return nil;
 }
 - (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{
     return nil;
@@ -89,7 +89,6 @@
 }
 - (void)setUI{
     [self addSubview:self.collectionView];
-    self.adapter.collectionView = self.collectionView;
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
@@ -101,9 +100,10 @@
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id<FPBaseSectionModelProtocal>)object{
     if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
         return object.sectionController;
-    }else{
+    }else if(object respondsToSelector:@selector(sectionControllerBlock)){
         return object.sectionControllerBlock(object);
     }
+    return nil;
 }
 - (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{
     return nil;
