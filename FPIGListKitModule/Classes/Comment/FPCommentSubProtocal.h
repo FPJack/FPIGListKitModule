@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FPModuleProtocoal.h"
+#import <FPIGListKitModule.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol FPHyperlinkProtocal <NSObject>

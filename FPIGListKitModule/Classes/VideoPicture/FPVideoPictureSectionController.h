@@ -6,7 +6,6 @@
 //
 
 #import <IGListKit/IGListKit.h>
-#import "FPModuleProtocoal.h"
 #import <FPImageVideoCell/FPImageVideoCell.h>
 #import <FPIGListKitModule.h>
 
