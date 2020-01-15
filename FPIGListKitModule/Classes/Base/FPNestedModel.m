@@ -1,5 +1,5 @@
 //
-//  FPBaseSectionModel.m
+//  FPListKitSectionModel.m
 //  FPCommentsModule
 //
 //  Created by fanpeng on 2020/1/4.
@@ -26,12 +26,28 @@
 
 
 @implementation FPSingleSectionModel
-
 @end
 @implementation FPDequeueReusableModel
 
-
 @end
+@implementation FPBaseSectionModel
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.diffId = [NSString stringWithFormat:@"%f",NSDate.date.timeIntervalSince1970];
+    }
+    return self;
+}
+- (nonnull id<NSObject>)diffIdentifier {return self.diffId;}
+- (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object {
+    FPBaseSectionModel *obj = (FPBaseSectionModel*)object;
+    if (![obj isKindOfClass:[FPBaseSectionModel class]]) return NO;
+    if (![self isEqual:object]) return NO;
+    return [self.diffId isEqualToString:obj.diffId];
+}
+@end
+
 
 
 @implementation FPNestedModel
@@ -60,22 +76,7 @@
 @end
 
 
-@implementation FPBaseSectionModel
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.diffId = [NSString stringWithFormat:@"%f",NSDate.date.timeIntervalSince1970];
-    }
-    return self;
-}
-- (nonnull id<NSObject>)diffIdentifier {return self.diffId;}
-- (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object {
-    FPBaseSectionModel *obj = (FPBaseSectionModel*)object;
-    if (![obj isKindOfClass:[FPBaseSectionModel class]]) return NO;
-    if (![self isEqual:object]) return NO;
-    return [self.diffId isEqualToString:obj.diffId];
-}
+@implementation FPListKitSectionModel
 @end
 @implementation FPUserModel
 @end

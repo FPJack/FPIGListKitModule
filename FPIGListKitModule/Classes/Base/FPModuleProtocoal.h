@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)IGListSectionController *sectionController;
 
 //懒加载初始化没有做属性保存 没掉用一次生成一个新的sectionController对象 后续通过模型拿不到同一个对象
-@property (nonatomic,copy)IGListSectionController* (^sectionControllerBlock)(id<FPSectionModelProtocal> model);
+@property (nonatomic,copy)IGListSectionController* (^sectionControllerBlock)(id<IGListDiffable,FPCreateSectionControllerProtocal> model);
 @end
 NS_ASSUME_NONNULL_END
 

@@ -1,5 +1,5 @@
 //
-//  FPBaseSectionModel.h
+//  FPListKitSectionModel.h
 //  FPCommentsModule
 //
 //  Created by fanpeng on 2020/1/4.
@@ -9,24 +9,22 @@
 #import <IGListKit/IGListKit.h>
 #import "FPModuleProtocoal.h"
 
+NS_ASSUME_NONNULL_BEGIN
+@interface FPBaseSectionModel : NSObject<IGListDiffable,FPCreateSectionControllerProtocal>
+@property(nonatomic,copy)NSString *diffId;
+@property (nonatomic,strong)IGListSectionController *sectionController;
+@property (nonatomic,copy)IGListSectionController* (^sectionControllerBlock)(id<IGListDiffable,FPCreateSectionControllerProtocal> model);
+@end
+NS_ASSUME_NONNULL_END
 
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPBaseSectionModel : NSObject<FPSectionModelProtocal>
-@property(nonatomic,copy)NSString *diffId;
+@interface FPListKitSectionModel : FPBaseSectionModel<FPSectionModelProtocal>
 @property (nonatomic,assign)CGFloat height;
 @property (nonatomic,assign)CGFloat width;
-
 @property (nonatomic,assign)UIEdgeInsets sectionInset;
-
 @property (nonatomic,strong)id<FPConfigureReusableSupplementaryProtocal> header;
 @property (nonatomic,strong)id<FPConfigureReusableSupplementaryProtocal> footer;
-
-
-//生成sectionController
-@property (nonatomic,strong)IGListSectionController *sectionController;
-@property (nonatomic,copy)IGListSectionController* (^sectionControllerBlock)(id<FPSectionModelProtocal> model);
-
 @property (nonatomic,copy)UICollectionViewCell  *(^dequeueReusableCellBlock)(id model,IGListSectionController *sectionController,id<IGListCollectionContext> collectionContext,NSInteger index);
 
 @property (nonatomic,strong)id strongObject;//备用
@@ -37,12 +35,14 @@ NS_ASSUME_NONNULL_END
 
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPSingleSectionModel : FPBaseSectionModel
+@interface FPSingleSectionModel : FPListKitSectionModel
 @property (nonatomic,strong)Class class_name;
 @property (nonatomic,copy)NSString* nibName;
 @property (nonatomic,strong)NSBundle *bundle;
 @end
 NS_ASSUME_NONNULL_END
+
+
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_END
 
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPNestedModel : FPBaseSectionModel<FPNestedSectionModelProtocal>
+@interface FPNestedModel : FPListKitSectionModel<FPNestedSectionModelProtocal>
 @property (nonatomic,assign)NSInteger workingRangeSize;
 @property (nonatomic,assign)UIEdgeInsets collectionViewContentInset;
 @property (nonatomic,strong)NSMutableArray <id<FPSectionModelProtocal>> *nestedCellItems;
@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_END
 
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPNumberItemModel : FPBaseSectionModel<FPNumberOfItemSectionModelProtocal>
+@interface FPNumberItemModel : FPListKitSectionModel<FPNumberOfItemSectionModelProtocal>
 @property (nonatomic, assign) CGFloat minimumLineSpacing;
 @property (nonatomic, assign) CGFloat minimumInteritemSpacing;
 @property (nonatomic,strong)NSMutableArray <id<FPConfigureReusableCellProtocal>> *cellItems;

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_END
 
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPVideoPictureModel : FPBaseSectionModel<FPVideoPictureProtocal>
+@interface FPVideoPictureModel : FPListKitSectionModel<FPVideoPictureProtocal>
 @property (nonatomic,strong)NSMutableArray *sources;
 @property (nonatomic,assign)CGSize oneItemSize;
 @property (nonatomic,assign)NSInteger column;
