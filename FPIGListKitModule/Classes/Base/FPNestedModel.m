@@ -42,7 +42,7 @@
 - (nonnull id<NSObject>)diffIdentifier {return self.diffId;}
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object {
     FPBaseSectionModel *obj = (FPBaseSectionModel*)object;
-    if (![obj isKindOfClass:[FPBaseSectionModel class]]) return NO;
+    if (![obj isKindOfClass:[self class]]) return NO;
     if (![self isEqual:object]) return NO;
     return [self.diffId isEqualToString:obj.diffId];
 }
@@ -74,30 +74,10 @@
     return _height;
 }
 @end
-
-
 @implementation FPListKitSectionModel
 @end
 @implementation FPUserModel
 @end
-
-
 @implementation FPNumberItemModel
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.diffId = [NSString stringWithFormat:@"%f",NSDate.date.timeIntervalSince1970];
-    }
-    return self;
-}
-- (nonnull id<NSObject>)diffIdentifier {return self.diffId;}
-- (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object {
-    FPNumberItemModel *obj = (FPNumberItemModel*)object;
-    if (![obj isKindOfClass:[FPNumberItemModel class]]) return NO;
-    if (![self isEqual:object]) return NO;
-    return [self.diffId isEqualToString:obj.diffId];
-}
 @end
 
