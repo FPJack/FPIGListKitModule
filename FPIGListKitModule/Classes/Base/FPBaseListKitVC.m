@@ -100,7 +100,7 @@
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id<FPBaseSectionModelProtocal>)object{
     if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
         return object.sectionController;
-    }else if(object respondsToSelector:@selector(sectionControllerBlock)){
+    }else if([object respondsToSelector:@selector(sectionControllerBlock)]){
         return object.sectionControllerBlock(object);
     }
     return nil;
