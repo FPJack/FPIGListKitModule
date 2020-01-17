@@ -201,20 +201,11 @@
 
 
 
-@interface FPNumberOfItemsSectionController()<IGListAdapterDataSource>
+@interface FPNumberOfItemsSectionController()
 @property (nonatomic,strong)id<FPNumberOfItemSectionModelProtocal> model;
-@property (nonatomic,readwrite)IGListAdapter *adapter;
 @end
 @implementation FPNumberOfItemsSectionController
 @dynamic model;
-- (IGListAdapter *)adapter{
-    if (!_adapter) {
-        _adapter = [[IGListAdapter alloc]initWithUpdater:[IGListAdapterUpdater new] viewController:self.viewController workingRangeSize:0];
-        _adapter.dataSource = self;
-    }
-    return _adapter;
-}
-
 - (NSInteger)numberOfItems{
     return self.model.cellItems.count;
 }
@@ -239,6 +230,11 @@
         cell =  self.model.dequeueReusableCellBlock(self.model,self,self.collectionContext,index);
     }else{
         cell = [self dequeueCell:model index:index];
+    }
+    if ([cell respondsToSelector:@selector(collectionView)] && [cell respondsToSelector:@selector(adapter)] && [cell respondsToSelector:@selector(datas)]) {
+        id<FPCollectionViewProtocal,FPAdapterProtocal> newCell = (id<FPCollectionViewProtocal,FPAdapterProtocal>)cell;
+        newCell.adapter.collectionView = newCell.collectionView;
+        newCell.datas = @[model];
     }
     if (self.configureCellBlock) self.configureCellBlock(model, cell,self);
     return cell;
@@ -269,23 +265,5 @@
         self.minimumInteritemSpacing = object.minimumInteritemSpacing;
     }
     self.model = object;
-}
-
-
-
-- (NSArray<id <IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter{
-    NSArray<id<IGListDiffable>> *datas = (NSArray<id<IGListDiffable>>*)self.model.cellItems;
-    return datas;
-}
-- (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id<FPBaseSectionModelProtocal>)object{
-    if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
-        return object.sectionController;
-    }else if([object respondsToSelector:@selector(sectionControllerBlock)]){
-        return object.sectionControllerBlock(self.model);
-    }
-    return nil;
-}
-- (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{
-    return nil;
 }
 @end

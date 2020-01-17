@@ -6,9 +6,7 @@
 //
 
 #import "FPNestedCollectionViewCell.h"
-@interface FPNestedCollectionViewCell()
-@property (nonatomic, readwrite)UICollectionView *collectionView;
-@end
+#import <IGListKit/IGListKit.h>
 @implementation FPNestedCollectionViewCell
 - (UICollectionView *)collectionView{
     if (!_collectionView) {
@@ -21,9 +19,12 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {[self setUI];}
+    if (self) {
+        [self setUI];
+    }
     return self;
 }
+
 - (void)setUI{
     [self.contentView addSubview:self.collectionView];
     [self.collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -35,7 +36,33 @@
 }
 @end
 
-
+@implementation FPNestedAdapterCollectionViewCell
+- (void)setDatas:(NSArray<id<FPBaseSectionModelProtocal>> *)datas{
+    _datas = datas;
+    [self.adapter performUpdatesAnimated:YES completion:nil];
+}
+- (IGListAdapter *)adapter{
+    if (!_adapter) {
+        _adapter = [[IGListAdapter alloc]initWithUpdater:[IGListAdapterUpdater new] viewController:self.VC workingRangeSize:self.workRange];
+        _adapter.dataSource = self;
+    }
+    return _adapter;
+}
+- (NSArray<id <IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter{
+    return self.datas;
+}
+- (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id<FPBaseSectionModelProtocal>)object{
+    if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
+        return object.sectionController;
+    }else if([object respondsToSelector:@selector(sectionControllerBlock)]){
+        return object.sectionControllerBlock(object);
+    }
+    return nil;
+}
+- (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{
+    return nil;
+}
+@end
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

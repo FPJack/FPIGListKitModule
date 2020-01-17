@@ -6,15 +6,25 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
+#import "FPIGListKitModule.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPNestedCollectionViewCell : UICollectionViewCell
-@property (nonatomic, readonly)UICollectionView *collectionView;
+@interface FPNestedCollectionViewCell : UICollectionViewCell<FPCollectionViewProtocal>
+//@property (nonatomic,copy)void(^tapCellBlock)(FPNestedCollectionViewCell *cell);
+@property (nonatomic, strong)UICollectionView *collectionView;
 @end
 NS_ASSUME_NONNULL_END
 
+
+//cell自带adapter 使用与一个SectionController 有多个itemCell时且cell又需配合SectionControllers才能使用
+NS_ASSUME_NONNULL_BEGIN
+@interface FPNestedAdapterCollectionViewCell : FPNestedCollectionViewCell<FPAdapterProtocal,IGListAdapterDataSource>
+@property (nonatomic,weak)UIViewController *VC;
+@property (nonatomic,assign)NSInteger workRange;
+@property (nonatomic,weak)NSArray <id<FPBaseSectionModelProtocal>> *datas;
+@property (nonatomic,strong)IGListAdapter *adapter;
+@end
+NS_ASSUME_NONNULL_END
 
 
 

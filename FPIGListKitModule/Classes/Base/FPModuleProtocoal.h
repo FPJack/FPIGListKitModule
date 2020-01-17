@@ -11,6 +11,7 @@ typedef void (^FPConfigureSectionCellBlock)(id __nullable item, __kindof UIColle
 typedef void (^FPConfigureSupplementaryViewBlock)(id __nullable item, __kindof UICollectionReusableView * __nullable cell,IGListSectionController * __nullable sectionController);
 @protocol FPSubSectionModelsProtocal;
 @protocol FPSectionModelProtocal;
+@protocol FPBaseSectionModelProtocal;
 
 //
 NS_ASSUME_NONNULL_BEGIN
@@ -18,6 +19,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)UICollectionView *collectionView;
 @end
 NS_ASSUME_NONNULL_END
+
+NS_ASSUME_NONNULL_BEGIN
+@protocol FPAdapterProtocal <NSObject>
+@required
+@property (nonatomic,strong)IGListAdapter *adapter;
+@property (nonatomic,strong)NSArray <id<FPBaseSectionModelProtocal>> *datas;
+@end
+NS_ASSUME_NONNULL_END
+
 
 //SectionController生成器
 NS_ASSUME_NONNULL_BEGIN
@@ -125,6 +135,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)UIEdgeInsets collectionViewContentInset;
 @property (nonatomic,strong)NSMutableArray <id<FPSectionModelProtocal>> *nestedCellItems;
 @property (nonatomic,copy)UICollectionViewCell<FPCollectionViewProtocal>  *(^dequeueReusableCellBlock)(id<FPSectionModelProtocal> model,IGListSectionController *sectionController,id<IGListCollectionContext> collectionContext,NSInteger index);
+
+@property (nonatomic,strong)id<FPAdapterProtocal> adapterModel;
 @end
 NS_ASSUME_NONNULL_END
 

@@ -61,6 +61,9 @@
             cell.label.text = @"ddd";
             [cell.button setTitle:@"dddd" forState:UIControlStateNormal];
         };
+        sectionController.didSelectItemBlock = ^(IGListSectionController * _Nonnull sectionController, id  _Nonnull model, NSInteger index) {
+            
+        };
         model.sectionController = sectionController;
         CGFloat width = (kSWidth - 10 * 5)/6;
         NSMutableArray *items = [NSMutableArray array];
@@ -73,16 +76,16 @@
             [items addObject:subItem];
         }
         model.cellItems = items;
-        [datas addObject:model];
+        [self.datas addObject:model];
     }
-    self.datas = datas;
 
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+        self.datas = [NSMutableArray array];
+
 //    [self setNumberItems];
     self.navigationController.navigationBar.translucent = NO;
-    self.datas = [NSMutableArray array];
     FPNumberItemModel *mainModel = [FPNumberItemModel new];
     {
         FPDequeueReusableModel *rModel = [FPDequeueReusableModel new];
@@ -95,34 +98,35 @@
         };
         mainModel.header = rModel;
     }
+    FPNumberOfItemsSectionController *sectionController = [FPNumberOfItemsSectionController new];
+    sectionController.configureCellBlock = ^(id  _Nullable item, __kindof FPNestedCollectionViewCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
+        FPNumberOfItemsSectionController *sc = (FPNumberOfItemsSectionController*)sectionController;
+        sc.adapter.collectionView = cell.collectionView;
+    };
+    
+    mainModel.sectionController = sectionController;
+    NSMutableArray *items = [NSMutableArray array];
 
-    for (int i = 0 ; i < 10; i ++) {
-
-        FPNumberOfItemsSectionController *sectionController = [FPNumberOfItemsSectionController new];
-        sectionController.configureCellBlock = ^(id  _Nullable item, __kindof FPNestedCollectionViewCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
-            FPNumberOfItemsSectionController *sc = (FPNumberOfItemsSectionController*)sectionController;
-            sc.adapter.collectionView = cell.collectionView;
-        };
-        
-        mainModel.sectionController = sectionController;
-        
-        NSMutableArray *items = [NSMutableArray array];
-        {
-            [items addObject:[self createModel:1]];
-        }
-        mainModel.cellItems = items;
+    for (int i = 0 ; i < 2; i ++) {
+     [items addObject:[self createModel:i]];
     }
+    mainModel.cellItems = items;
+
     [self.datas addObject:mainModel];
 
     self.adapter.collectionView = self.collectionView;
 
-    
+    [self.collectionView layoutIfNeeded];
+    NSLog(@"%f  ----%f",mainModel.cellItems.firstObject.height,mainModel.cellItems.lastObject.height);
     
 }
 - (id)createModel:(int)index{
     {
         NSMutableArray *subArr = [NSMutableArray array];
         FPNestedSectionController *nestedSC = [FPNestedSectionController new];
+        nestedSC.didSelectItemBlock = ^(IGListSectionController * _Nonnull sectionController, id  _Nonnull model, NSInteger index) {
+            int a;
+        };
         FPNestedModel *mainModel = [FPNestedModel new];
         mainModel.width = kSWidth;
         {
@@ -312,7 +316,8 @@
         mainModel.sectionInset = UIEdgeInsetsMake(5, 0, 5, 0);
         mainModel.sectionController = nestedSC;
         mainModel.dequeueReusableCellBlock = ^UICollectionViewCell<FPCollectionViewProtocal> * _Nonnull(id<FPSectionModelProtocal>  _Nonnull model, IGListSectionController * _Nonnull sectionController, id<IGListCollectionContext>  _Nonnull collectionContext, NSInteger index) {
-         UICollectionViewCell *cell = [collectionContext dequeueReusableCellOfClass:[FPNestedCollectionViewCell class] forSectionController:sectionController atIndex:index];
+         FPNestedAdapterCollectionViewCell *cell = [collectionContext dequeueReusableCellOfClass:[FPNestedAdapterCollectionViewCell class] forSectionController:sectionController atIndex:index];
+            cell.adapter.viewController = self;
 //            cell.backgroundColor = [UIColor orangeColor];
             return cell;
         };

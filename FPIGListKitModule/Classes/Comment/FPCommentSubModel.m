@@ -20,7 +20,6 @@ static TTTAttributedLabel *label;
 {
     self = [super init];
     if (self) {
-        self.width = [UIScreen mainScreen].bounds.size.width;
         self.textFont = [UIFont systemFontOfSize:15];
     }
     return self;
