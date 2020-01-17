@@ -10,13 +10,12 @@
 #define kSWidth [UIScreen mainScreen].bounds.size.width
 @implementation FPTextModel
 @synthesize height = _height;
-
+@synthesize width = _width;
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.width = [UIScreen mainScreen].bounds.size.width;
         self.font = [UIFont systemFontOfSize:15];
     }
     return self;

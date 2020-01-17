@@ -201,11 +201,20 @@
 
 
 
-@interface FPNumberOfItemsSectionController()
+@interface FPNumberOfItemsSectionController()<IGListAdapterDataSource>
 @property (nonatomic,strong)id<FPNumberOfItemSectionModelProtocal> model;
+@property (nonatomic,readwrite)IGListAdapter *adapter;
 @end
 @implementation FPNumberOfItemsSectionController
 @dynamic model;
+- (IGListAdapter *)adapter{
+    if (!_adapter) {
+        _adapter = [[IGListAdapter alloc]initWithUpdater:[IGListAdapterUpdater new] viewController:self.viewController workingRangeSize:0];
+        _adapter.dataSource = self;
+    }
+    return _adapter;
+}
+
 - (NSInteger)numberOfItems{
     return self.model.cellItems.count;
 }
@@ -260,5 +269,23 @@
         self.minimumInteritemSpacing = object.minimumInteritemSpacing;
     }
     self.model = object;
+}
+
+
+
+- (NSArray<id <IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter{
+    NSArray<id<IGListDiffable>> *datas = (NSArray<id<IGListDiffable>>*)self.model.cellItems;
+    return datas;
+}
+- (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id<FPBaseSectionModelProtocal>)object{
+    if ([object respondsToSelector:@selector(sectionController)] && object.sectionController) {
+        return object.sectionController;
+    }else if([object respondsToSelector:@selector(sectionControllerBlock)]){
+        return object.sectionControllerBlock(self.model);
+    }
+    return nil;
+}
+- (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{
+    return nil;
 }
 @end
