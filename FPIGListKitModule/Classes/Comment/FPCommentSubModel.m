@@ -16,6 +16,16 @@
 static TTTAttributedLabel *label;
 @implementation FPCommentSubModel
 @synthesize height = _height;
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.width = [UIScreen mainScreen].bounds.size.width;
+        self.textFont = [UIFont systemFontOfSize:15];
+    }
+    return self;
+}
+
 - (CGFloat)height{
     CGFloat width = self.width;
     if (_height == 0) {

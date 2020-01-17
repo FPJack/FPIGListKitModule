@@ -123,6 +123,7 @@
 - (UILabel *)label{
     if (!_label) {
         _label = [UILabel new];
+        _label.font = [UIFont systemFontOfSize:15];
     }
     return _label;
 }

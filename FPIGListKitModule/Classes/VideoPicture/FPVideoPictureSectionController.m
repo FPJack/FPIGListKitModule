@@ -9,6 +9,14 @@
 @implementation FPVideoPictureModel
 
 @synthesize height = _height;
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.width = [UIScreen mainScreen].bounds.size.width;
+    }
+    return self;
+}
 - (CGFloat)height{
     #warning  height = 0 下面的sectionController不会显示 可能是IGListKit的问题 后续再看
     if (self.sources.count == 0) return 0.01;

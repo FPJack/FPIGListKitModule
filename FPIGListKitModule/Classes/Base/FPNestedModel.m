@@ -7,8 +7,21 @@
 
 #import "FPNestedModel.h"
 #import "FPModuleHelper.h"
+#define kSWidth [UIScreen mainScreen].bounds.size.width
 @implementation FPTextModel
 @synthesize height = _height;
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.width = [UIScreen mainScreen].bounds.size.width;
+        self.font = [UIFont systemFontOfSize:15];
+    }
+    return self;
+}
+
 - (CGFloat)height{
     if (self.content != nil && self.content.length > 0) {
         CGFloat width = self.width;
