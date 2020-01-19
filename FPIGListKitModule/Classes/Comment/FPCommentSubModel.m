@@ -30,8 +30,9 @@ static TTTAttributedLabel *label;
         });
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineSpacing = 3;
+        __weak typeof(self) weakSelf = self;
         [label setText:self.attrText.string afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-            [mutableAttributedString setAttributes:@{NSFontAttributeName : self.textFont,NSParagraphStyleAttributeName:paragraphStyle} range:NSMakeRange(0, mutableAttributedString.length)];
+            [mutableAttributedString setAttributes:@{NSFontAttributeName : weakSelf.textFont,NSParagraphStyleAttributeName:paragraphStyle} range:NSMakeRange(0, mutableAttributedString.length)];
             return mutableAttributedString;
         }];
        _height =  ceil([label sizeThatFits:CGSizeMake(width, MAXFLOAT)].height);

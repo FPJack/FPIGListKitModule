@@ -64,8 +64,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)UIEdgeInsets collectionViewContentInset;
 @property (nonatomic,strong)NSMutableArray <id<FPSectionModelProtocal>> *nestedCellItems;
 @property (nonatomic,copy)UICollectionViewCell<FPCollectionViewProtocal>  *(^dequeueReusableCellBlock)(id<FPSectionModelProtocal> model,IGListSectionController *sectionController,id<IGListCollectionContext> collectionContext,NSInteger index);
-
-@property (nonatomic,strong)id<FPAdapterProtocal> adapterModel;
 @end
 NS_ASSUME_NONNULL_END
 

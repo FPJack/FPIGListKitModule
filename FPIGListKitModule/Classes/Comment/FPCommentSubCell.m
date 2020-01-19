@@ -36,11 +36,12 @@
 }
 - (void)setModel:(id<FPCommentSubProtocal>)model{
     _model = model;
+    __weak typeof(self) weakSelf = self;
     self.commentLab.linkAttributes = @{@(NO):(NSString *)kCTUnderlineStyleAttributeName,[UIColor blackColor] : (NSString*)kCTForegroundColorAttributeName};
     self.commentLab.activeLinkAttributes = @{@(YES):(NSString *)kCTUnderlineStyleAttributeName,[UIColor redColor] : (NSString*)kCTForegroundColorAttributeName};
     self.commentLab.delegate = self;
     [self.commentLab setText:model.attrText.string afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-        [model.links enumerateObjectsUsingBlock:^(id<FPHyperlinkProtocal>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf.model.links enumerateObjectsUsingBlock:^(id<FPHyperlinkProtocal>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [mutableAttributedString setAttributes:obj.configure range:obj.range];
         }];
         return mutableAttributedString;
@@ -48,7 +49,7 @@
     //添加超链接
     [model.links enumerateObjectsUsingBlock:^(id<FPHyperlinkProtocal>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.enableTap){
-            [self.commentLab addLinkToTransitInformation:@{@"obj" : obj} withRange:obj.range];
+            [weakSelf.commentLab addLinkToTransitInformation:@{@"obj" : obj} withRange:obj.range];
         }
     }];
 }

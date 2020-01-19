@@ -8,7 +8,7 @@
 #import "FPNestedSectionController.h"
 #import "FPNestedCollectionViewCell.h"
 @interface FPBaseSectionController()<IGListSupplementaryViewSource>
-@property (nonatomic,strong)id<FPSectionModelProtocal> model;
+@property (nonatomic,weak)id<FPSectionModelProtocal> model;
 @end
 @implementation FPBaseSectionController
 - (instancetype)init
@@ -95,7 +95,7 @@
 
 @interface FPNestedSectionController()<IGListAdapterDataSource>
 @property (nonatomic,readwrite)IGListAdapter *adapter;
-@property (nonatomic,strong)id<FPNestedSectionModelProtocal> model;
+@property (nonatomic,weak)id<FPNestedSectionModelProtocal> model;
 @end
 @implementation FPNestedSectionController
 @dynamic model;
@@ -160,7 +160,7 @@
 
 
 @interface FPSingleSectionController()
-@property (nonatomic,strong)id<FPSingleSectionModelProtocal> model;
+@property (nonatomic,weak)id<FPSingleSectionModelProtocal> model;
 @end
 @implementation FPSingleSectionController
 @dynamic model;
@@ -202,7 +202,7 @@
 
 
 @interface FPNumberOfItemsSectionController()
-@property (nonatomic,strong)id<FPNumberOfItemSectionModelProtocal> model;
+@property (nonatomic,weak)id<FPNumberOfItemSectionModelProtocal> model;
 @end
 @implementation FPNumberOfItemsSectionController
 @dynamic model;
