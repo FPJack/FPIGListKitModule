@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface FPNestedCollectionViewCell : UICollectionViewCell<FPCollectionViewProtocal>
-//@property (nonatomic,copy)void(^tapCellBlock)(FPNestedCollectionViewCell *cell);
+@property (nonatomic,copy)void(^tapCellBlock)(FPNestedCollectionViewCell *cell);
 @property (nonatomic, strong)UICollectionView *collectionView;
 @end
 NS_ASSUME_NONNULL_END

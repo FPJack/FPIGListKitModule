@@ -85,7 +85,6 @@
     self.datas = [NSMutableArray array];
     
     [self setNumberItems];
-    self.navigationController.navigationBar.translucent = NO;
     FPNumberItemModel *mainModel = [FPNumberItemModel new];
     {
         FPDequeueReusableModel *rModel = [FPDequeueReusableModel new];
@@ -249,7 +248,7 @@
         
         {
             FPNestedModel *commentModel = [FPNestedModel new];
-            commentModel.collectionViewContentInset = UIEdgeInsetsMake(10, 12, 10, 12);
+            commentModel.collectionViewContentInset = UIEdgeInsetsMake(10, 12, 5, 12);
             NSMutableArray *arr = [NSMutableArray array];
             NSInteger rand = arc4random() % 10 + 1;
             for (int i = 0; i < rand; i ++) {

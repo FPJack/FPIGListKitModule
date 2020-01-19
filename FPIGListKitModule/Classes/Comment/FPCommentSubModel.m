@@ -7,12 +7,8 @@
 
 #import "FPCommentSubModel.h"
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
-
 @implementation FPHyperlinkModel
 @end
-
-
-
 static TTTAttributedLabel *label;
 @implementation FPCommentSubModel
 @synthesize height = _height;
@@ -24,7 +20,6 @@ static TTTAttributedLabel *label;
     }
     return self;
 }
-
 - (CGFloat)height{
     CGFloat width = self.width;
     if (_height == 0) {

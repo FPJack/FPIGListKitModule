@@ -7,14 +7,25 @@
 
 #import "FPNestedCollectionViewCell.h"
 #import <IGListKit/IGListKit.h>
+@interface FPNestedCollectionViewCell()<UIGestureRecognizerDelegate>
+@end
 @implementation FPNestedCollectionViewCell
 - (UICollectionView *)collectionView{
     if (!_collectionView) {
         _collectionView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.scrollEnabled = NO;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
+        tap.delegate = self;
+        [_collectionView addGestureRecognizer:tap];
     }
     return _collectionView;
+}
+- (void)tapAction{
+    if (self.tapCellBlock) self.tapCellBlock(self);
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    return [touch.view isEqual:self.collectionView] ? YES : NO;
 }
 - (instancetype)initWithFrame:(CGRect)frame
 {
