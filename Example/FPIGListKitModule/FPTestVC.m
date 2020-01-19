@@ -103,7 +103,7 @@
     NSMutableArray *items = [NSMutableArray array];
     
     for (int i = 0 ; i < 1; i ++) {
-        [items addObject:[self createModel:i]];
+        [items addObject:[self createModel:i sectionController:sectionController]];
     }
     mainModel.cellItems = items;
     
@@ -115,7 +115,7 @@
     NSLog(@"%f  ----%f",mainModel.cellItems.firstObject.height,mainModel.cellItems.lastObject.height);
     
 }
-- (id)createModel:(int)index{
+- (id)createModel:(int)index sectionController:(FPNumberOfItemsSectionController*)SC{
     {
         NSMutableArray *subArr = [NSMutableArray array];
         FPNestedSectionController *nestedSC = [FPNestedSectionController new];
@@ -173,7 +173,7 @@
             [subArr addObject:textModel];
             
             if ([FPModuleHelper compareTextHeightWithNumberOfLines:textModel.numberOfLines font:textModel.font widht:textModel.width text:textModel.content]) {
-                [subArr addObject:[self createExpandSection:mainModel]];
+                [subArr addObject:[self createExpandSection:mainModel sectionController:SC]];
             }
         }
         
@@ -259,7 +259,7 @@
                 for (int j = 0 ; j < rand; j ++) {
                     [jArr addObject:text];
                 }
-                FPCommentSubModel *model = [self createSubComment:[jArr componentsJoinedByString:@"-"] nestedModel:mainModel];
+                FPCommentSubModel *model = [self createSubComment:[jArr componentsJoinedByString:@"-"] nestedModel:mainModel SC:SC];
                 //                model.sectionController.inset = model.inset;
                 [arr addObject:model];
             }
@@ -310,7 +310,7 @@
         
     }
 }
-- (id)createSubComment:(NSString*)text nestedModel:(id<FPNestedSectionModelProtocal>)nestedModel{
+- (id)createSubComment:(NSString*)text nestedModel:(id<FPNestedSectionModelProtocal>)nestedModel SC:(IGListSectionController*)SC{
     FPCommentSubModel *model = [FPCommentSubModel new];
     CGFloat width = kSWidth - 68 - 12 * 2 - 20;
     FPCommentSubSectionController *sectionController = [FPCommentSubSectionController new];
@@ -330,22 +330,22 @@
             }
             nestedModel.height = 0;
             
-            [nestedModel.sectionController.collectionContext performBatchAnimated:YES updates:^(id<IGListBatchContext>  _Nonnull batchContext) {
-                [batchContext reloadSectionController:nestedModel.sectionController];
+            [SC.collectionContext performBatchAnimated:YES updates:^(id<IGListBatchContext>  _Nonnull batchContext) {
+                [batchContext reloadSectionController:SC];
             } completion:nil];
             return ;
         }
         [FPTextViewInputView.share showText:nil placholder:@"输入" block:^(NSString * _Nonnull text) {
             if (!text) return ;
-            FPCommentSubModel *subModel = [weakSelf createSubComment:text nestedModel:nestedModel];
+            FPCommentSubModel *subModel = [weakSelf createSubComment:text nestedModel:nestedModel SC:SC];
             if ([FPModuleHelper indexWithDiffid:kMoreCommentDiffId fromNestedModel:comment] != NSNotFound) {
                 [FPModuleHelper addSectionModel:subModel beforSectionModelDiffId:kMoreCommentDiffId fromNestedModel:comment];
             }else{
                 [FPModuleHelper addSectionModel:subModel fromNestedModel:comment];
             }
             nestedModel.height = 0;
-            [nestedModel.sectionController.collectionContext performBatchAnimated:YES updates:^(id<IGListBatchContext>  _Nonnull batchContext) {
-                [batchContext reloadSectionController:nestedModel.sectionController];
+            [SC.collectionContext performBatchAnimated:YES updates:^(id<IGListBatchContext>  _Nonnull batchContext) {
+                [batchContext reloadSectionController:SC];
             } completion:nil];
         }];
     };
@@ -360,7 +360,7 @@
     model.commentId = @"9333993";
     return model;
 }
-- (id)createExpandSection:(FPNestedModel*)nestedModel{
+- (id)createExpandSection:(FPNestedModel*)nestedModel sectionController:(IGListSectionController*)nestedSC{
     
     FPTextModel *model = [FPTextModel new];
     FPSingleSectionController *sectionController = [FPSingleSectionController new];
@@ -374,8 +374,8 @@
             contentModel.numberOfLines = item.strongObject ? 0 : kDefaultNumberOfLines;
             contentModel.height = 0;
             nestedModel.height = 0;
-            [nestedModel.sectionController.collectionContext performBatchAnimated:NO updates:^(id<IGListBatchContext>  _Nonnull batchContext) {
-                [batchContext reloadSectionController:nestedModel.sectionController];
+            [nestedSC.collectionContext performBatchAnimated:NO updates:^(id<IGListBatchContext>  _Nonnull batchContext) {
+                [batchContext reloadSectionController:nestedSC];
             } completion:nil];
         };
         [cell.button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];

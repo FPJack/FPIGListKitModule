@@ -39,7 +39,7 @@
 @implementation FPNestedAdapterCollectionViewCell
 - (void)setDatas:(NSArray<id<FPBaseSectionModelProtocal>> *)datas{
     _datas = datas;
-    [self.adapter performUpdatesAnimated:YES completion:nil];
+    [self.adapter reloadDataWithCompletion:nil];
 }
 - (IGListAdapter *)adapter{
     if (!_adapter) {
