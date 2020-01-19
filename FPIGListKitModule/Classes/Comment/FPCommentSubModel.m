@@ -20,7 +20,7 @@ static TTTAttributedLabel *label;
 {
     self = [super init];
     if (self) {
-        self.textFont = [UIFont systemFontOfSize:15];
+//        self.textFont = [UIFont systemFontOfSize:15];
     }
     return self;
 }

@@ -231,11 +231,6 @@
     }else{
         cell = [self dequeueCell:model index:index];
     }
-    if ([cell respondsToSelector:@selector(collectionView)] && [cell respondsToSelector:@selector(adapter)] && [cell respondsToSelector:@selector(datas)]) {
-        id<FPCollectionViewProtocal,FPAdapterProtocal> newCell = (id<FPCollectionViewProtocal,FPAdapterProtocal>)cell;
-        newCell.adapter.collectionView = newCell.collectionView;
-        newCell.datas = @[model];
-    }
     if (self.configureCellBlock) self.configureCellBlock(model, cell,self);
     return cell;
 }

@@ -32,6 +32,5 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 @interface FPNumberOfItemsSectionController : FPBaseSectionController
-@property (nonatomic,readonly)IGListAdapter *adapter;
 @end
 NS_ASSUME_NONNULL_END

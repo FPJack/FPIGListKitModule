@@ -45,6 +45,7 @@
     if (!_adapter) {
         _adapter = [[IGListAdapter alloc]initWithUpdater:[IGListAdapterUpdater new] viewController:self.VC workingRangeSize:self.workRange];
         _adapter.dataSource = self;
+        _adapter.collectionView = self.collectionView;
     }
     return _adapter;
 }
