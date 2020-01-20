@@ -262,6 +262,7 @@
                 //                model.sectionController.inset = model.inset;
                 [arr addObject:model];
             }
+        
             if (rand > 5) {
                 {
                     FPTextModel *model = [FPTextModel new];

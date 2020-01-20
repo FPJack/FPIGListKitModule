@@ -59,7 +59,7 @@
 }
 @end
 @interface FPVideoPictureSectionController()
-@property (nonatomic,strong)id <FPVideoPictureProtocal> model;
+@property (nonatomic,weak)id <FPVideoPictureProtocal> model;
 @end
 @implementation FPVideoPictureSectionController
 - (CGSize)sizeForItemAtIndex:(NSInteger)index{
