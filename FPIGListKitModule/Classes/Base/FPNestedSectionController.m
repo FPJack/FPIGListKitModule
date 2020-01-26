@@ -35,7 +35,7 @@
     id<FPConfigureReusableSupplementaryProtocal> model = [elementKind isEqualToString:UICollectionElementKindSectionHeader] ? self.model.header : self.model.footer;
     UICollectionReusableView *supplementaryView = [self viewForSupplementaryElementOfKind:elementKind atIndex:index from:model];
     if (self.configureSupplementaryViewBlock) {
-        self.configureSupplementaryViewBlock(self.model, supplementaryView, self);
+        self.configureSupplementaryViewBlock(self.model,elementKind, supplementaryView, self);
     }
     return supplementaryView;
 }
@@ -136,7 +136,7 @@
     self.adapter.collectionView = cell.collectionView;
     [self.adapter reloadDataWithCompletion:nil];
     if ([self respondsToSelector:@selector(configureCellBlock)] && self.configureCellBlock) {
-        self.configureCellBlock(self.model, cell,self);
+        self.configureCellBlock(self.model, index,cell,self);
     }
     return cell;
 }
@@ -190,7 +190,7 @@
             cell = [self.collectionContext dequeueReusableCellOfClass:cellItem.class_name forSectionController:self atIndex:index];
         }
     }
-    if (self.configureCellBlock) self.configureCellBlock(self.model, cell,self);
+    if (self.configureCellBlock) self.configureCellBlock(self.model,index, cell,self);
     return cell;
 }
 @end
@@ -231,7 +231,7 @@
     }else{
         cell = [self dequeueCell:model index:index];
     }
-    if (self.configureCellBlock) self.configureCellBlock(model, cell,self);
+    if (self.configureCellBlock) self.configureCellBlock(model, index,cell,self);
     return cell;
 }
 - (UICollectionViewCell*)dequeueCell:(id<FPConfigureReusableCellProtocal>)model index:(NSInteger)index{

@@ -83,7 +83,7 @@
         videoImageCell.source = self.model.sources;
 //        videoImageCell.source = [self.model.sources mutableCopy];
     }
-    if ([self respondsToSelector:@selector(configureCellBlock)] && self.configureCellBlock) {self.configureCellBlock(self.model, cell,self);}
+    if ([self respondsToSelector:@selector(configureCellBlock)] && self.configureCellBlock) {self.configureCellBlock(self.model,index, cell,self);}
     return cell;
 }
 - (void)didUpdateToObject:(id<FPVideoPictureProtocal>)object{

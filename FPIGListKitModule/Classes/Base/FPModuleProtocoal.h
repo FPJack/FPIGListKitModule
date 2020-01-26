@@ -7,8 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import <IGListKit/IGListKit.h>
-typedef void (^FPConfigureSectionCellBlock)(id __nullable item, __kindof UICollectionViewCell * __nullable cell,IGListSectionController * __nullable sectionController);
-typedef void (^FPConfigureSupplementaryViewBlock)(id __nullable item, __kindof UICollectionReusableView * __nullable cell,IGListSectionController * __nullable sectionController);
+typedef void (^FPConfigureSectionCellBlock)(id __nullable item, NSInteger index,__kindof UICollectionViewCell * __nullable cell,IGListSectionController * __nullable sectionController);
+typedef void (^FPConfigureSupplementaryViewBlock)(id __nullable item,NSString * _Nullable elementKind, __kindof UICollectionReusableView * __nullable cell,IGListSectionController * __nullable sectionController);
 @protocol FPSubSectionModelsProtocal;
 @protocol FPSectionModelProtocal;
 @protocol FPBaseSectionModelProtocal;
