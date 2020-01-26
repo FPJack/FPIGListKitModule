@@ -35,7 +35,7 @@
     id<FPConfigureReusableSupplementaryProtocal> model = [elementKind isEqualToString:UICollectionElementKindSectionHeader] ? self.model.header : self.model.footer;
     UICollectionReusableView *supplementaryView = [self viewForSupplementaryElementOfKind:elementKind atIndex:index from:model];
     if (self.configureSupplementaryViewBlock) {
-        self.configureSupplementaryViewBlock(self.model,elementKind, supplementaryView, self);
+        self.configureSupplementaryViewBlock(self.model,elementKind,index, supplementaryView, self);
     }
     return supplementaryView;
 }

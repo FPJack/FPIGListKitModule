@@ -56,7 +56,7 @@
         }
         
         FPNumberOfItemsSectionController *sectionController = [FPNumberOfItemsSectionController new];
-        sectionController.configureSupplementaryViewBlock = ^(id  _Nullable item,NSString *elementKind, __kindof FPCollectionReusableView * _Nullable cell, IGListSectionController * _Nullable sectionController) {
+        sectionController.configureSupplementaryViewBlock = ^(id  _Nullable item,NSString *elementKind, NSInteger index,__kindof FPCollectionReusableView * _Nullable cell, IGListSectionController * _Nullable sectionController) {
             cell.label.text = @"ddd";
             [cell.button setTitle:@"dddd" forState:UIControlStateNormal];
         };
