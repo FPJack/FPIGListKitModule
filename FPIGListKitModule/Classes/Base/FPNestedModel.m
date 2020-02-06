@@ -79,7 +79,7 @@
             }
         }];
         //contentInset
-        height += (self.sectionInset.top + self.sectionInset.bottom);
+//        height += (self.sectionInset.top + self.sectionInset.bottom);
         height += (self.collectionViewContentInset.top + self.collectionViewContentInset.bottom);
         _height = height;
     }

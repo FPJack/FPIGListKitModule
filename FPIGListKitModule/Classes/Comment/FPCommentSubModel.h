@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *commentByUserId;
 @property(nonatomic,copy)NSString *commentByUserName;
 @property(nonatomic,copy)NSString *commentText;
+@property (nonatomic,assign)NSInteger numberOfLines;
 @property (nonatomic,strong)NSAttributedString *attrText;
 @property (nonatomic,strong)NSArray <id<FPHyperlinkProtocal>> *links;
 + (CGFloat)configureTTTAttributedLabelTextHeightText:(NSString*)text configure:(NSDictionary*)config width:(CGFloat)width numberOfLines:(int)numberOfLines;

@@ -311,6 +311,7 @@
 }
 - (id)createSubComment:(NSString*)text nestedModel:(id<FPNestedSectionModelProtocal>)nestedModel SC:(IGListSectionController*)SC{
     FPCommentSubModel *model = [FPCommentSubModel new];
+//    model.numberOfLines = 2;
     CGFloat width = kSWidth - 68 - 12 * 2 - 20;
     FPCommentSubSectionController *sectionController = [FPCommentSubSectionController new];
     __weak typeof(self) weakSelf = self;

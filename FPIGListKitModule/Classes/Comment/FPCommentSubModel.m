@@ -28,6 +28,7 @@ static TTTAttributedLabel *label;
             label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
             label.numberOfLines = 0;
         });
+        if (self.numberOfLines > 0) label.numberOfLines = self.numberOfLines;
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineSpacing = 3;
         __weak typeof(self) weakSelf = self;
