@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 <FPSectionControllerHelperProtocal>
 @property (nonatomic,copy)FPConfigureSectionCellBlock configureCellBlock;
 @property (nonatomic,copy)FPConfigureSupplementaryViewBlock configureSupplementaryViewBlock;
-@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id model,NSInteger index);
+@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id model,NSIndexPath *indexPath);
 @end
 NS_ASSUME_NONNULL_END
 

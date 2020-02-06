@@ -84,7 +84,8 @@
 
 - (void)didSelectItemAtIndex:(NSInteger)index{
     if ([self respondsToSelector:@selector(didSelectItemBlock)] && self.didSelectItemBlock) {
-        self.didSelectItemBlock(self, self.model, index);
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:self.section];
+        self.didSelectItemBlock(self, self.model, indexPath);
     }
 }
 @end
@@ -125,8 +126,9 @@
 }
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
     UICollectionViewCell<FPCollectionViewProtocal> *cell;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:self.section];
     if ([self.model respondsToSelector:@selector(dequeueReusableCellBlock)] && self.model.dequeueReusableCellBlock) {
-        cell = self.model.dequeueReusableCellBlock(self.model,self,self.collectionContext,index);
+        cell = self.model.dequeueReusableCellBlock(self.model,self,self.collectionContext,indexPath);
     }else{
         cell = [self.collectionContext dequeueReusableCellOfClass:FPNestedCollectionViewCell.class forSectionController:self atIndex:index];
     }
@@ -136,7 +138,7 @@
     self.adapter.collectionView = cell.collectionView;
     [self.adapter reloadDataWithCompletion:nil];
     if ([self respondsToSelector:@selector(configureCellBlock)] && self.configureCellBlock) {
-        self.configureCellBlock(self.model, index,cell,self);
+        self.configureCellBlock(self.model,indexPath,cell,self);
     }
     return cell;
 }
@@ -180,8 +182,9 @@
 }
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
     UICollectionViewCell *cell;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:self.section];
     if ([self.model respondsToSelector:@selector(dequeueReusableCellBlock)] && self.model.dequeueReusableCellBlock) {
-        cell = self.model.dequeueReusableCellBlock(self.model,self,self.collectionContext,index);
+        cell = self.model.dequeueReusableCellBlock(self.model,self,self.collectionContext,indexPath);
     }else{
         id<FPLoadReusableViewProtocal> cellItem = self.model;
         if ([cellItem respondsToSelector:@selector(nibName)] && [cellItem respondsToSelector:@selector(bundle)] && cellItem.nibName && cellItem.bundle) {
@@ -190,7 +193,9 @@
             cell = [self.collectionContext dequeueReusableCellOfClass:cellItem.class_name forSectionController:self atIndex:index];
         }
     }
-    if (self.configureCellBlock) self.configureCellBlock(self.model,index, cell,self);
+    if (self.configureCellBlock){
+        self.configureCellBlock(self.model,indexPath, cell,self);
+    }
     return cell;
 }
 @end
@@ -225,19 +230,23 @@
 }
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
     UICollectionViewCell *cell;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:self.section];
     id<FPConfigureReusableCellProtocal> model = self.model.cellItems[index];
     if ([self.model respondsToSelector:@selector(dequeueReusableCellBlock)] && self.model.dequeueReusableCellBlock) {
-        cell =  self.model.dequeueReusableCellBlock(self.model,self,self.collectionContext,index);
+        cell =  self.model.dequeueReusableCellBlock(self.model,self,self.collectionContext,indexPath);
     }else{
         cell = [self dequeueCell:model index:index];
     }
-    if (self.configureCellBlock) self.configureCellBlock(model, index,cell,self);
+    if (self.configureCellBlock){
+        self.configureCellBlock(model, indexPath,cell,self);
+    }
     return cell;
 }
 - (UICollectionViewCell*)dequeueCell:(id<FPConfigureReusableCellProtocal>)model index:(NSInteger)index{
     UICollectionViewCell *cell;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:self.section];
     if ([model respondsToSelector:@selector(dequeueReusableCellBlock)] && model.dequeueReusableCellBlock) {
-        cell = model.dequeueReusableCellBlock(model,self,self.collectionContext,index);
+        cell = model.dequeueReusableCellBlock(model,self,self.collectionContext,indexPath);
     }else{
         if ([model respondsToSelector:@selector(nibName)] &&
             [model respondsToSelector:@selector(bundle)] &&

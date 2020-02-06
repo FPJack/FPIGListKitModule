@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <IGListKit/IGListKit.h>
-typedef void (^FPConfigureSectionCellBlock)(id __nullable item, NSInteger index,__kindof UICollectionViewCell * __nullable cell,IGListSectionController * __nullable sectionController);
+typedef void (^FPConfigureSectionCellBlock)(id __nullable item, NSIndexPath* _Nonnull indexPath,__kindof UICollectionViewCell * __nullable cell,IGListSectionController * __nullable sectionController);
 typedef void (^FPConfigureSupplementaryViewBlock)(id __nullable item,NSString * _Nullable elementKind,NSInteger index, __kindof UICollectionReusableView * __nullable cell,IGListSectionController * __nullable sectionController);
 @protocol FPSubSectionModelsProtocal;
 @protocol FPSectionModelProtocal;
@@ -46,9 +46,9 @@ NS_ASSUME_NONNULL_END
 NS_ASSUME_NONNULL_BEGIN
 @protocol FPSectionControllerHelperProtocal <NSObject>
 @optional
-@property (nonatomic,strong)FPConfigureSectionCellBlock configureCellBlock;
-@property (nonatomic,strong)FPConfigureSupplementaryViewBlock configureSupplementaryViewBlock;
-@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id model,NSInteger index);
+@property (nonatomic,copy)FPConfigureSectionCellBlock configureCellBlock;
+@property (nonatomic,copy)FPConfigureSupplementaryViewBlock configureSupplementaryViewBlock;
+@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id model,NSIndexPath *indexPath);
 @end
 NS_ASSUME_NONNULL_END
 
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_END
 NS_ASSUME_NONNULL_BEGIN
 @protocol FPLoadReusableCellBlockProtocal <NSObject>
 @optional
-@property (nonatomic,copy)UICollectionViewCell  *(^dequeueReusableCellBlock)(id model,IGListSectionController *sectionController,id<IGListCollectionContext> collectionContext,NSInteger index);
+@property (nonatomic,copy)UICollectionViewCell  *(^dequeueReusableCellBlock)(id model,IGListSectionController *sectionController,id<IGListCollectionContext> collectionContext,NSIndexPath* indexPath);
 @end
 NS_ASSUME_NONNULL_END
 
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)NSInteger workingRangeSize;
 @property (nonatomic,assign)UIEdgeInsets collectionViewContentInset;
 @property (nonatomic,strong)NSMutableArray <id<FPSectionModelProtocal>> *nestedCellItems;
-@property (nonatomic,copy)UICollectionViewCell<FPCollectionViewProtocal>  *(^dequeueReusableCellBlock)(id<FPSectionModelProtocal> model,IGListSectionController *sectionController,id<IGListCollectionContext> collectionContext,NSInteger index);
+@property (nonatomic,copy)UICollectionViewCell<FPCollectionViewProtocal>  *(^dequeueReusableCellBlock)(id<FPSectionModelProtocal> model,IGListSectionController *sectionController,id<IGListCollectionContext> collectionContext,NSIndexPath* indexPath);
 
 @property (nonatomic,strong)id<FPAdapterProtocal> adapterModel;
 @end

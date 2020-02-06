@@ -45,8 +45,8 @@ static TTTAttributedLabel *label;
     if (!_attrText && _commentText && _commentText.length > 0) {
         NSMutableAttributedString *mAttr = [[NSMutableAttributedString alloc]initWithString:@"" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]}];
         NSMutableArray *links = [NSMutableArray array];
-        UIColor *highColor = [UIColor colorWithRed:0 green:120/255.0 blue:1 alpha:1];
-        UIColor *norColor = [UIColor blackColor];
+        UIColor *highColor = self.highlightColor ? self.highlightColor : [UIColor colorWithRed:0 green:120/255.0 blue:1 alpha:1];
+        UIColor *norColor = self.normalColor ? self.normalColor : [UIColor blackColor];
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineSpacing = 3;
         if (self.commentUserName && self.commentUserName.length > 0) {//回复人

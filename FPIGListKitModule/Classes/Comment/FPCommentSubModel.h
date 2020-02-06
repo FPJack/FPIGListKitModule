@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *commentByUserId;
 @property(nonatomic,copy)NSString *commentByUserName;
 @property(nonatomic,copy)NSString *commentText;
+@property (nonatomic,strong)UIColor *highlightColor;
+@property (nonatomic,strong)UIColor *normalColor;
 @property (nonatomic,assign)NSInteger numberOfLines;
 @property (nonatomic,strong)NSAttributedString *attrText;
 @property (nonatomic,strong)NSArray <id<FPHyperlinkProtocal>> *links;

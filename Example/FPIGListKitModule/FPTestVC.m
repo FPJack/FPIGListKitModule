@@ -39,8 +39,8 @@
         model.minimumLineSpacing = space;
         model.minimumInteritemSpacing = space;
         model.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10);
-        model.dequeueReusableCellBlock = ^UICollectionViewCell * _Nonnull(id  _Nonnull model, IGListSectionController * _Nonnull sectionController, id<IGListCollectionContext>  _Nonnull collectionContext, NSInteger index) {
-            UICollectionViewCell *cell = [collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class] forSectionController:sectionController atIndex:index];
+        model.dequeueReusableCellBlock = ^UICollectionViewCell * _Nonnull(id  _Nonnull model, IGListSectionController * _Nonnull sectionController, id<IGListCollectionContext>  _Nonnull collectionContext, NSIndexPath* indexPath) {
+            UICollectionViewCell *cell = [collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class] forSectionController:sectionController atIndex:indexPath.item];
             cell.backgroundColor = [UIColor redColor];
             return cell;
         };
@@ -60,7 +60,7 @@
             cell.label.text = @"ddd";
             [cell.button setTitle:@"dddd" forState:UIControlStateNormal];
         };
-        sectionController.didSelectItemBlock = ^(IGListSectionController * _Nonnull sectionController, id  _Nonnull model, NSInteger index) {
+        sectionController.didSelectItemBlock = ^(IGListSectionController * _Nonnull sectionController, id  _Nonnull model, NSIndexPath * _Nonnull indexPath) {
             
         };
         model.sectionController = sectionController;
@@ -125,7 +125,7 @@
             userModel.userName = [NSString stringWithFormat:@"%d--Jack",index];
             userModel.time = @"2019-09-02";
             FPSingleSectionController *sectonController = [FPSingleSectionController new];
-            sectonController.configureCellBlock = ^(FPUserModel*  _Nonnull item,NSInteger index, __kindof FPUserInfoCollectionCell * _Nonnull cell,IGListSectionController *sectionController) {
+            sectonController.configureCellBlock = ^(FPUserModel*  _Nullable item, NSIndexPath *indexPath, __kindof FPUserInfoCollectionCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
                 cell.imgView.backgroundColor = [UIColor orangeColor];
                 cell.label1.text = item.userName;
                 cell.label2.text = item.time;
@@ -149,11 +149,12 @@
             textModel.class_name = FPTextCollectionCell.class;
             FPSingleSectionController *sectonController = [FPSingleSectionController new];
             textModel.font = [UIFont systemFontOfSize:13];
-            sectonController.configureCellBlock = ^(FPTextModel*  _Nonnull item,NSInteger index, __kindof FPTextCollectionCell * _Nonnull cell,IGListSectionController * sectionController) {
+            sectonController.configureCellBlock = ^(FPTextModel*  _Nullable item, NSIndexPath *indexPath, __kindof FPTextCollectionCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
                 cell.label.text = item.content;
                 cell.label.numberOfLines = item.numberOfLines;
                 cell.label.font = item.font;
                 cell.label.textColor = [UIColor blackColor];
+
             };
             textModel.sectionController = sectonController;
             textModel.numberOfLines = 0;
@@ -180,11 +181,12 @@
             FPVideoPictureModel *model = [FPVideoPictureModel new];
             model.diffId = @"FPVideoPictureModel";
             FPVideoPictureSectionController *sectionController = [FPVideoPictureSectionController new];
-            sectionController.configureCellBlock = ^(FPVideoPictureModel*  _Nonnull item, NSInteger index, __kindof FPVideoPictureCollectionCell * _Nonnull cell,IGListSectionController *sectionController) {
+            sectionController.configureCellBlock = ^(FPVideoPictureModel*  _Nullable item, NSIndexPath *indexPath, __kindof FPVideoPictureCollectionCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
                 cell.imageVideoCell.cornerRadius = 5;
                 cell.imageVideoCell.loadNetworkImageBlock = ^(UIImageView * _Nonnull imageView, NSURL * _Nonnull url, UIImage * _Nonnull placeholderImage) {
                     [imageView sd_setImageWithURL:url placeholderImage:placeholderImage];
                 };
+
             };
             model.sectionController = sectionController;
             model.column = 3;
@@ -233,7 +235,7 @@
         {
             FPTextModel *model = [FPTextModel new];
             FPSingleSectionController *sectionController = [FPSingleSectionController new];
-            sectionController.configureCellBlock = ^(id  _Nonnull item,NSInteger index,  __kindof FPTextCollectionCell * _Nonnull cell,IGListSectionController * sectionController) {
+            sectionController.configureCellBlock = ^(id  _Nonnull item,NSIndexPath *indexPath,  __kindof FPTextCollectionCell * _Nonnull cell,IGListSectionController * sectionController) {
                 cell.label.text = @"两小时前";
                 cell.label.font = [UIFont systemFontOfSize:12];
                 cell.label.textColor = [UIColor grayColor];
@@ -266,7 +268,7 @@
                 {
                     FPTextModel *model = [FPTextModel new];
                     FPSingleSectionController *sectionController = [FPSingleSectionController new];
-                    sectionController.configureCellBlock = ^(id  _Nullable item, NSInteger index, __kindof FPBtnCollectionCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
+                    sectionController.configureCellBlock = ^(id  _Nullable item, NSIndexPath* indexPath, __kindof FPBtnCollectionCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
                         [cell.button setTitle:@"查看更多评论" forState:UIControlStateNormal];
                         cell.tapBlock = ^(UIButton * _Nonnull button) {
                             //点击查看更多评论
@@ -284,7 +286,7 @@
             }
             commentModel.nestedCellItems = arr;
             FPNestedSectionController *sc = [FPNestedSectionController new];
-            sc.configureCellBlock = ^(id  _Nonnull item,NSInteger index,  __kindof FPNestedCollectionViewCell * _Nonnull cell,IGListSectionController *sectionController) {
+            sc.configureCellBlock = ^(id  _Nonnull item,NSIndexPath* indexPath,  __kindof FPNestedCollectionViewCell * _Nonnull cell,IGListSectionController *sectionController) {
                 cell.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
                 cell.contentView.layer.cornerRadius = 5;
                 cell.contentView.layer.masksToBounds = YES;
@@ -298,7 +300,7 @@
         mainModel.nestedCellItems = subArr;
         mainModel.sectionInset = UIEdgeInsetsMake(5, 0, 5, 0);
         mainModel.sectionController = nestedSC;
-        mainModel.dequeueReusableCellBlock = ^UICollectionViewCell<FPCollectionViewProtocal> * _Nonnull(id<FPSectionModelProtocal>  _Nonnull model, IGListSectionController * _Nonnull sectionController, id<IGListCollectionContext>  _Nonnull collectionContext, NSInteger index) {
+        mainModel.dequeueReusableCellBlock = ^UICollectionViewCell<FPCollectionViewProtocal> * _Nonnull(id<FPSectionModelProtocal>  _Nonnull model, IGListSectionController * _Nonnull sectionController, id<IGListCollectionContext>  _Nonnull collectionContext, NSIndexPath* indexPath) {
             FPNestedModel *nestedModel = (FPNestedModel*)model;
             FPNestedAdapterCollectionViewCell *cell = [collectionContext dequeueReusableCellOfClass:[FPNestedAdapterCollectionViewCell class] forSectionController:sectionController atIndex:index];
             cell.adapter.viewController = self;
@@ -364,7 +366,7 @@
     
     FPTextModel *model = [FPTextModel new];
     FPSingleSectionController *sectionController = [FPSingleSectionController new];
-    sectionController.configureCellBlock = ^(FPTextModel*  _Nullable item,NSInteger index,  __kindof FPBtnCollectionCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
+    sectionController.configureCellBlock = ^(FPTextModel*  _Nullable item,NSIndexPath* indexPath,  __kindof FPBtnCollectionCell * _Nullable cell, IGListSectionController * _Nullable sectionController) {
         [cell.button setTitle:item.strongObject ? @"收起" : @"全文" forState:UIControlStateNormal];
         cell.tapBlock = ^(UIButton * _Nonnull button) {
             //点击查看更多评论
