@@ -46,12 +46,17 @@
                             <action selector="rightButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="bLF-IB-RwE"/>
                         </connections>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="19" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="9ZF-sD-67W">
+                        <rect key="frame" x="104" y="30.5" width="19" height="20"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="r9U-Sf-D3C" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="87V-c2-0yl"/>
                 <constraint firstAttribute="trailing" secondItem="gKc-QI-gGi" secondAttribute="trailing" constant="15" id="8r6-Pc-DtZ"/>
+                <constraint firstItem="9ZF-sD-67W" firstAttribute="centerY" secondItem="3Tq-pz-i2P" secondAttribute="centerY" id="Mcf-yH-KWS"/>
                 <constraint firstItem="r9U-Sf-D3C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="Nh1-po-lJi"/>
+                <constraint firstItem="9ZF-sD-67W" firstAttribute="leading" secondItem="3Tq-pz-i2P" secondAttribute="trailing" constant="5" id="ZgH-JQ-BwK"/>
                 <constraint firstItem="gKc-QI-gGi" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="myf-Vq-Q3b"/>
                 <constraint firstItem="3Tq-pz-i2P" firstAttribute="top" secondItem="r9U-Sf-D3C" secondAttribute="top" id="pW1-Sg-vqD"/>
                 <constraint firstItem="C8k-he-gAW" firstAttribute="bottom" secondItem="r9U-Sf-D3C" secondAttribute="bottom" id="qFu-sM-3Ea"/>
@@ -72,6 +77,8 @@
                 <outlet property="label2BottomCon" destination="qFu-sM-3Ea" id="S2T-eg-F7A"/>
                 <outlet property="rightButton" destination="gKc-QI-gGi" id="fUx-kE-4fx"/>
                 <outlet property="rightButtonRightCon" destination="8r6-Pc-DtZ" id="BiP-3P-IWt"/>
+                <outlet property="tagImgView" destination="9ZF-sD-67W" id="ICe-Of-IhG"/>
+                <outlet property="tagImgViewLeftCon" destination="ZgH-JQ-BwK" id="fpA-vM-hgj"/>
             </connections>
             <point key="canvasLocation" x="392.75362318840581" y="170.42410714285714"/>
         </collectionViewCell>

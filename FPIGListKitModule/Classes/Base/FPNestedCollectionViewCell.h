@@ -75,6 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property (weak, nonatomic) IBOutlet UIImageView *tagImgView;
 @property (nonatomic,copy)void (^rightButtonTapBlock)(UIButton *button);
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewLeftCon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewHeightCon;
@@ -83,6 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightButtonRightCon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *label2BottomCon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *label1TopCon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagImgViewLeftCon;
 + (NSBundle*)userInfoCollectionCellBundle;
 @end
 NS_ASSUME_NONNULL_END
