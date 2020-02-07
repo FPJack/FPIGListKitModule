@@ -14,6 +14,6 @@
 #import "FPNestedCollectionViewCell.h"
 #import "FPNestedModel.h"
 #import "FPNestedSectionController.h"
-#import "FPBaseListKitVC.h"
+#import "NSObject+FPIGListKit.h"
 
 #endif /* FPIGListKitModule_h */
