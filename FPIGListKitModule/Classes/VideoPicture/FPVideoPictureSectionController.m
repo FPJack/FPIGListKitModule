@@ -95,7 +95,7 @@
 }
 - (void)didSelectItemAtIndex:(NSInteger)index{
     if ([self respondsToSelector:@selector(didSelectItemBlock)] && self.didSelectItemBlock) {
-        self.didSelectItemBlock(self, self.model, index);
+        self.didSelectItemBlock(self, self.model, [NSIndexPath indexPathForItem:index inSection:self.section]);
     }
 }
 

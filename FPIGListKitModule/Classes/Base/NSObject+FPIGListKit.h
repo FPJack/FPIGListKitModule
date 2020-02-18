@@ -23,6 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (FPIGListKit)<FPIGListKitProtocal,IGListAdapterDataSource>
 @property (nonatomic,strong)IGListAdapter *IGAdapter;
 @property (strong, nonatomic)UICollectionView *IGCollectionView;
-@property (nonatomic,strong)NSMutableArray<FPBaseSectionModelProtocal> *IGDatas;
+@property (nonatomic,strong)NSMutableArray *IGDatas;
 @end
 NS_ASSUME_NONNULL_END

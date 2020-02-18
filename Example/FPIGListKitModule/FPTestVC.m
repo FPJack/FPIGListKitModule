@@ -320,7 +320,7 @@
     sectionController.tapLinkBlock = ^(FPCommentSubSectionController * _Nonnull sectionController,id<FPCommentSubProtocal> commentModel ,id<FPHyperlinkProtocal>  _Nonnull link) {
         //点击用户名
     };
-    sectionController.didSelectItemBlock = ^(IGListSectionController *sectionController,id<FPCommentSubProtocal> commentModel,NSInteger index) {
+    sectionController.didSelectItemBlock = ^(IGListSectionController *sectionController,id<FPCommentSubProtocal> commentModel,NSIndexPath* indexPath) {
         id<FPNestedSectionModelProtocal> comment = (id<FPNestedSectionModelProtocal>)[FPModuleHelper sectionModelWithDiffId:@"comment" fromNestedModel:nestedModel];
         
         //点击回复内容

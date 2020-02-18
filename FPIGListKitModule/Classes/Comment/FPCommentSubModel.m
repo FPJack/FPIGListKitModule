@@ -28,7 +28,7 @@ static TTTAttributedLabel *label;
             label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
             label.numberOfLines = 0;
         });
-        if (self.numberOfLines > 0) label.numberOfLines = self.numberOfLines;
+        label.numberOfLines = self.numberOfLines;
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineSpacing = 3;
         __weak typeof(self) weakSelf = self;
@@ -49,6 +49,7 @@ static TTTAttributedLabel *label;
         UIColor *norColor = self.normalColor ? self.normalColor : [UIColor blackColor];
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineSpacing = 3;
+        paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
         if (self.commentUserName && self.commentUserName.length > 0) {//回复人
                 NSAttributedString *userAttr = [[NSMutableAttributedString alloc]initWithString:self.commentUserName];
                 NSRange userNameRange = NSMakeRange(0,self.commentUserName.length);

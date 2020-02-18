@@ -14,7 +14,6 @@ static const char FPIGListAdapter = '\0';
 - (void)setIGCollectionView:(UICollectionView *)IGCollectionView{
     objc_setAssociatedObject(self, &FPIGListAdapter,
                              IGCollectionView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 - (UICollectionView *)IGCollectionView{
     UICollectionView *collectionView =  objc_getAssociatedObject(self, &FPIGListAdapter);
@@ -39,12 +38,12 @@ static const char FPIGAdapter = '\0';
     return adapter;
 }
 static const char FPIGDatas = '\0';
-- (void)setIGDatas:(NSMutableArray<FPBaseSectionModelProtocal> *)IGDatas{
+- (void)setIGDatas:(NSMutableArray *)IGDatas{
     objc_setAssociatedObject(self, &FPIGDatas,
                              IGDatas, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSMutableArray<FPBaseSectionModelProtocal> *)IGDatas{
-    NSMutableArray<FPBaseSectionModelProtocal> *datas =  objc_getAssociatedObject(self, &FPIGDatas);
+- (NSMutableArray *)IGDatas{
+    NSMutableArray *datas =  objc_getAssociatedObject(self, &FPIGDatas);
       if (!datas) {
           datas = [NSMutableArray array];
           self.IGDatas = datas;
@@ -62,14 +61,7 @@ static const char FPIGDatas = '\0';
     }
     return nil;
 }
-- (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{
-    return nil;
-}
-- (UIViewController *)igAdapterVC{
-    return nil;
-}
-- (NSInteger)igWorkingRangeSize{
-    return 0;
-}
-
+- (nullable UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter{return nil;}
+- (UIViewController *)igAdapterVC{return nil;}
+- (NSInteger)igWorkingRangeSize{return 0;}
 @end

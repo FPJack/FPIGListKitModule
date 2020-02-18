@@ -56,9 +56,9 @@ NS_ASSUME_NONNULL_END
 
 
 NS_ASSUME_NONNULL_BEGIN
-@interface FPVideoPictureSectionController : IGListSectionController<FPSectionControllerHelperProtocal>
-@property (nonatomic,strong)FPConfigureSectionCellBlock configureCellBlock;
-@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id<FPSectionModelProtocal,FPCreateSectionControllerProtocal> model,NSInteger index);
+@interface FPVideoPictureSectionController : FPSingleSectionController<FPSectionControllerHelperProtocal>
+//@property (nonatomic,strong)FPConfigureSectionCellBlock configureCellBlock;
+//@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id<FPSectionModelProtocal,FPCreateSectionControllerProtocal> model,NSInteger index);
 
 @end
 NS_ASSUME_NONNULL_END

@@ -10,10 +10,9 @@
 @protocol FPHyperlinkProtocal;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FPCommentSubSectionController : IGListSectionController
+@interface FPCommentSubSectionController : FPSingleSectionController
 @property (nonatomic,copy)void (^tapLinkBlock)(FPCommentSubSectionController *sectionController,id<FPCommentSubProtocal> commentModel,id<FPHyperlinkProtocal>  _Nonnull link);
-@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id<FPSectionModelProtocal> model,NSInteger index);
-
+//@property (nonatomic,copy)void (^didSelectItemBlock)(IGListSectionController *sectionController,id<FPSectionModelProtocal> model,NSInteger index);
 @end
 
 NS_ASSUME_NONNULL_END
