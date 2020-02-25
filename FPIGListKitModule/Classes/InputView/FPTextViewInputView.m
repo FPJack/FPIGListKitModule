@@ -10,14 +10,12 @@ static FPTextViewInputView *instance;
 static UIView *maskView;
 @interface FPTextViewInputView()
 @property (nonatomic,strong)UIView *bottomView;
-@property (nonatomic,strong)HPGrowingTextView *textView;
+@property (nonatomic,strong,readwrite)HPGrowingTextView *textView;
 @property (nonatomic,strong)UIButton *sendBtn;
 @property(nonatomic,strong)UIView *lineView;
-
+@property (nonatomic,copy)BOOL(^shouldChangeTextBlock)(NSString *text,HPGrowingTextView *textView);
 @end
-
 @implementation FPTextViewInputView
-
 - (UIView *)bottomView{
     if (!_bottomView) {
         _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 42)];
@@ -103,6 +101,7 @@ static UIView *maskView;
 }
 - (void)dismiss{
     [self.textView resignFirstResponder];
+    self.shouldChangeTextBlock = nil;
     maskView.alpha = 0;
 }
 - (void)growingTextView:(HPGrowingTextView *)growingTextView didChangeHeight:(float)height{
@@ -115,6 +114,12 @@ static UIView *maskView;
     [self sendAction];
     return YES;
 }
+- (BOOL)growingTextView:(HPGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if (self.shouldChangeTextBlock) {
+        return self.shouldChangeTextBlock(text,growingTextView);
+    }
+    return YES;
+}
 - (void)sendAction {
     [self dismiss];
     if (self.sendBlock) {
@@ -122,5 +127,12 @@ static UIView *maskView;
         self.textView.text = nil;
     }
 }
-
+- (void)showText:(nullable NSString *)text placholder:(nullable NSString*)placholder block:(void(^)(NSString *text))callBlock shouldChangeTextBlock:(BOOL(^)(NSString *text,HPGrowingTextView *textView))shouldChangeTextBlock{
+    self.shouldChangeTextBlock = shouldChangeTextBlock;
+    [self.bottomView addSubview:self.textView];
+    self.sendBlock = callBlock;
+    self.textView.placeholder = placholder;
+    self.textView.text = text;
+    [self show];
+}
 @end
