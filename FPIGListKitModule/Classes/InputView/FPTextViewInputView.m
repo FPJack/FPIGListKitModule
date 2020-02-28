@@ -115,6 +115,10 @@ static UIView *maskView;
     return YES;
 }
 - (BOOL)growingTextView:(HPGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]) {
+        [self sendAction];
+        return NO;
+    }
     if (self.shouldChangeTextBlock) {
         return self.shouldChangeTextBlock(text,growingTextView);
     }
