@@ -79,8 +79,9 @@
             }
         }];
         //contentInset
-//        height += (self.sectionInset.top + self.sectionInset.bottom);
-        height += (self.collectionViewContentInset.top + self.collectionViewContentInset.bottom);
+        if (self.nestedCellItems.count > 0) {
+            height += (self.collectionViewContentInset.top + self.collectionViewContentInset.bottom);
+        }
         _height = height;
     }
     return _height;
