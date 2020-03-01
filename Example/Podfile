@@ -13,6 +13,11 @@ target 'FPIGListKitModule_Example' do
   target 'FPIGListKitModule_Tests' do
     inherit! :search_paths
 
-    
+    #git pull origin master --allow-unrelated-histories
+    #pod repo push --sources=https://gitee.com/JRCompany/NetworkToolsSpec,https://github.com/CocoaPods/Specs NetworkToolsSpec NetworkTools.podspec --allow-warnings
+
+    #pod repo push --sources=https://git.coding.net/fan_peng/PrivateSpec,https://github.com/CocoaPods/Specs PrivateSpec Private.podspec --allow-warnings
+    #更新本地索引 pod update --no-repo-update
+
   end
 end
