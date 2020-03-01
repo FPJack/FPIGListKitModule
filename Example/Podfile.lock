@@ -1,20 +1,20 @@
 PODS:
-  - FPIGListKitModule (0.2.4):
-    - FPIGListKitModule/Base (= 0.2.4)
-    - FPIGListKitModule/Comment (= 0.2.4)
-    - FPIGListKitModule/InputView (= 0.2.4)
-    - FPIGListKitModule/VideoPicture (= 0.2.4)
+  - FPIGListKitModule (0.2.9):
+    - FPIGListKitModule/Base (= 0.2.9)
+    - FPIGListKitModule/Comment (= 0.2.9)
+    - FPIGListKitModule/InputView (= 0.2.9)
+    - FPIGListKitModule/VideoPicture (= 0.2.9)
     - IGListKit
-  - FPIGListKitModule/Base (0.2.4):
+  - FPIGListKitModule/Base (0.2.9):
     - IGListKit
-  - FPIGListKitModule/Comment (0.2.4):
+  - FPIGListKitModule/Comment (0.2.9):
     - FPIGListKitModule/Base
     - IGListKit
     - TTTAttributedLabel
-  - FPIGListKitModule/InputView (0.2.4):
+  - FPIGListKitModule/InputView (0.2.9):
     - HPGrowingTextView
     - IGListKit
-  - FPIGListKitModule/VideoPicture (0.2.4):
+  - FPIGListKitModule/VideoPicture (0.2.9):
     - FPIGListKitModule/Base
     - FPImageVideoCell
     - IGListKit
@@ -55,7 +55,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FPIGListKitModule: 4d3b2277ec2f99ae01b1963cf6c94fba57b27ef2
+  FPIGListKitModule: d70303d9accc97d8b63e9da6806f2d23d0ed5c80
   FPImageVideoCell: 504ac60ef890f1ed28f198aa37a48414b95589de
   FPRefresh: 446483b154c6b363d4f56f6b69a59f8f87c6cd1f
   HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19

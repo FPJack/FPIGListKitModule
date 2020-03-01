@@ -16,7 +16,7 @@
 #import <IGListKit/IGListKit.h>
 #import <FPIGListKitModule.h>
 #import <SDWebImage/SDWebImage.h>
-#import <FPTextViewInputView.h>
+#import <FPTextViewInputVC.h>
 #import <FPNestedSectionController.h>
 @interface FPTestVC ()<IGListAdapterDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -337,7 +337,7 @@
             } completion:nil];
             return ;
         }
-        [FPTextViewInputView.share showText:nil placholder:@"输入" block:^(NSString * _Nonnull text) {
+        [FPTextViewInputVC showText:nil placholder:@"输入" block:^(NSString * _Nonnull text) {
             if (!text) return ;
             FPCommentSubModel *subModel = [weakSelf createSubComment:text nestedModel:nestedModel SC:SC];
             if ([FPModuleHelper indexWithDiffid:kMoreCommentDiffId fromNestedModel:comment] != NSNotFound) {

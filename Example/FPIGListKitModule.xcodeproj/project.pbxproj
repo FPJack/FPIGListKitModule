@@ -258,6 +258,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = FPJack;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = MSL77HGY8X;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -526,11 +529,12 @@
 			baseConfigurationReference = 748A5D9659AA9581ACFC0C22 /* Pods-FPIGListKitModule_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MSL77HGY8X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FPIGListKitModule/FPIGListKitModule-Prefix.pch";
 				INFOPLIST_FILE = "FPIGListKitModule/FPIGListKitModule-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.FPIGListKitModule-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -542,11 +546,12 @@
 			baseConfigurationReference = 86EE59E9B6EA318E9F77E801 /* Pods-FPIGListKitModule_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MSL77HGY8X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FPIGListKitModule/FPIGListKitModule-Prefix.pch";
 				INFOPLIST_FILE = "FPIGListKitModule/FPIGListKitModule-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.FPIGListKitModule-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
