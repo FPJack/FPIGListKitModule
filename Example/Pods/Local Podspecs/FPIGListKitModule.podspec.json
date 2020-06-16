@@ -1,6 +1,6 @@
 {
   "name": "FPIGListKitModule",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "summary": "A short description of FPIGListKitModule.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/FPJack/FPIGListKitModule",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/FPJack/FPIGListKitModule.git",
-    "tag": "0.2.9"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "9.0"
